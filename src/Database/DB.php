@@ -1,8 +1,13 @@
 <?php
+ /**
+ * @author Praszna Koppány V.
+ **/
+
 namespace App\Database;
 
 class DB
 {
+
     const HOST = 'localhost';
     const USER = 'root';
     const PASSWORD = null;
@@ -20,6 +25,7 @@ class DB
         $this->mysqli->set_charset("utf8mb4");
     }
 
+    
     function __destruct()
     {
         $this->mysqli->close();

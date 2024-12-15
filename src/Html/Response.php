@@ -1,4 +1,8 @@
 <?php
+ /**
+ * @author Praszna Koppány V.
+ **/
+
 namespace App\Html;
 
 class Response 
@@ -8,7 +12,7 @@ class Response
         100 => "RequestContinue",
         200 => "OK",    
         201 => "Created",
-        400 => "Bad ",
+        400 => "Bad Request",
         404 => "Not Found"
     ];
 

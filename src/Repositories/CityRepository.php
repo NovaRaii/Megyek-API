@@ -1,5 +1,9 @@
 <?php
+ /**
+ * @author Praszna Koppány V.
+ **/
 
+ 
 namespace App\Repositories;
 
 class CityRepository extends BaseRepository
@@ -11,30 +15,20 @@ class CityRepository extends BaseRepository
     }
 
     public function getAllCity(): array {
-        $query = $this->select() . " ORDER BY city"; 
-        error_log("Executing query: " . $query); 
-    
+        $query = $this->select() . " ORDER BY city";  
         $result = $this->mysqli->query($query);
-    
-        if (!$result) {
-            error_log("Query Error: " . $this->mysqli->error);
-            return [];
-        }
-    
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function findByCountyId(int $countyId): array {
+    public function findCityByCountyId(int $countyId): array {
         $query = $this->select() . " WHERE id_county = $countyId ORDER BY city";
-        error_log("Executing query: " . $query); 
-
         $result = $this->mysqli->query($query);
-    
-        if (!$result) {
-            error_log("Query Error: " . $this->mysqli->error);
-            return [];
-        }
-    
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function findByCityId(int $cityId): array {
+        $query = $this->select() . " WHERE id = $cityId ORDER BY city";
+        $result = $this->mysqli->query($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 }

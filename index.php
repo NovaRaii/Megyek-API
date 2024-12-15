@@ -1,4 +1,7 @@
 <?php
+ /**
+ * @author Praszna Koppány V.
+ **/
 session_start();
 include './vendor/autoload.php';
 
